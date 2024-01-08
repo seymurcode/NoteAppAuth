@@ -13,14 +13,8 @@
         <item name="colorAccent">@color/white</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
-        <item name="bottomSheetStyle">@style/EnUygunBottomSheet</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:navigationBarColor">@color/white</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
-
-    <style name="EnUygunBottomSheet" parent="Widget.Design.BottomSheet.Modal">
-        <item name="background">@android:color/transparent</item>
-        <item name="behavior_skipCollapsed">true</item>
     </style>
 </resources>
