@@ -3,6 +3,9 @@ package com.sirketismi.noteapp.di
 import android.content.Context
 import androidx.room.Room
 import com.sirketismi.noteapp.dao.Appdatabase
+import com.sirketismi.noteapp.dao.Migration2to3
+import com.sirketismi.noteapp.dao.Migration3to4
+import com.sirketismi.noteapp.dao.Migration4to5
 import com.sirketismi.noteapp.dao.NotesDao
 import dagger.Module
 import dagger.Provides
@@ -28,7 +31,7 @@ object AppModule {
             appContext.applicationContext,
             Appdatabase::class.java,
             "notedb"
-        ).build()
+        ).addMigrations(Migration2to3(), Migration3to4(), Migration4to5()).build()
         return instance
     }
 }

@@ -21,6 +21,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas".toString())
+            }
+        }
     }
 
     buildTypes {
@@ -54,8 +60,11 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.46")
     kapt("com.google.dagger:hilt-compiler:2.46")
 
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
+
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
+
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")

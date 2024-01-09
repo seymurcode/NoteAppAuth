@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
 import com.sirketismi.noteapp.R
 import com.sirketismi.noteapp.databinding.FragmentNotesBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -51,7 +54,10 @@ class NotesFragment : Fragment() {
 
     private fun prepareRecyclerView() {
         context?.let {
-            val layoutManager = LinearLayoutManager(it, LinearLayoutManager.VERTICAL, false)
+           // val layoutManager = LinearLayoutManager(it, LinearLayoutManager.VERTICAL, false)
+            //val layoutManager = GridLayoutManager(it, 3)
+            val layoutManager = FlexboxLayoutManager(context)
+            layoutManager.flexWrap = FlexWrap.WRAP
             binding.recylerView.layoutManager = layoutManager
         }
 

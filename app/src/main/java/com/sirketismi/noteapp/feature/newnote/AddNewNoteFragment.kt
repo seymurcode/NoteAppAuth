@@ -12,6 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sirketismi.noteapp.databinding.FragmentAddNoteBinding
+import com.sirketismi.noteapp.util.showDatePicker
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,10 +24,19 @@ class AddNewNoteFragment : BottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentAddNoteBinding.inflate(inflater)
         binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
         viewModel.onSaveCompleted.observe(viewLifecycleOwner) {
             if(it) {
                 findNavController().navigateUp()
+            }
+        }
+
+        viewModel.onShowDatePickerTapped.observe(viewLifecycleOwner) {
+            if(it) {
+                showDatePicker() {
+                    viewModel.userSelectDate(it)
+                }
             }
         }
 
