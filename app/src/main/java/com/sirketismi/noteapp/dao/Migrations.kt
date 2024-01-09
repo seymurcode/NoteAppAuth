@@ -3,6 +3,11 @@ package com.sirketismi.noteapp.dao
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
+class Migration1to2 : Migration(1, 2) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("ALTER TABLE 'NoteEntity' ADD COLUMN 'note_tag' VARCHAR NOT NULL")
+    }
+}
 class Migration2to3 : Migration(2, 3) {
     override fun migrate(db: SupportSQLiteDatabase) {
         db.execSQL("ALTER TABLE 'NoteEntity' ADD COLUMN 'noteDate' INTEGER NOT NULL")

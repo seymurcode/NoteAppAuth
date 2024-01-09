@@ -15,6 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AddNewNoteViewModel @Inject constructor(val repository: NotesRepository): ViewModel() {
     var noteTitle = MutableLiveData<String>()
+    var noteTag = MutableLiveData<String>()
     var noteDetail = MutableLiveData<String>()
     var noteDateText = MutableLiveData<String>()
     var noteDateValue : Date = Date()
@@ -38,13 +39,14 @@ class AddNewNoteViewModel @Inject constructor(val repository: NotesRepository): 
         noteDateText.postValue(noteDateValue.format())
     }
     private fun isValid() : Boolean {
-        return !(noteTitle.value.isNullOrEmpty() || noteDetail.value.isNullOrEmpty())
+        return !(noteTitle.value.isNullOrEmpty() || noteDetail.value.isNullOrEmpty() || noteTag.value.isNullOrEmpty())
     }
 
     private fun insertNote() {
         val note = NoteEntity(
             title = noteTitle.value,
             detail = noteDetail.value,
+            tag = noteTag.value!!,
             date = noteDateValue.time)
         viewModelScope.launch {
             repository.insert(note)

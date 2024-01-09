@@ -3,6 +3,7 @@ package com.sirketismi.noteapp.di
 import android.content.Context
 import androidx.room.Room
 import com.sirketismi.noteapp.dao.Appdatabase
+import com.sirketismi.noteapp.dao.Migration1to2
 import com.sirketismi.noteapp.dao.Migration2to3
 import com.sirketismi.noteapp.dao.Migration3to4
 import com.sirketismi.noteapp.dao.Migration4to5
@@ -31,7 +32,9 @@ object AppModule {
             appContext.applicationContext,
             Appdatabase::class.java,
             "notedb"
-        ).addMigrations(Migration2to3(), Migration3to4(), Migration4to5()).build()
+        //).addMigrations(Migration2to3(), Migration3to4(), Migration4to5()).build()
+        ).addMigrations(Migration1to2()).build()
+
         return instance
     }
 }

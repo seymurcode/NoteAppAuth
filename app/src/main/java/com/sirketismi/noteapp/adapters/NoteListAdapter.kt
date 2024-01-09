@@ -1,8 +1,5 @@
-package com.sirketismi.noteapp.feature.notes
+package com.sirketismi.noteapp.adapters
 
-import android.content.ClipData.Item
-import android.content.Context
-import android.preference.PreferenceActivity.Header
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
