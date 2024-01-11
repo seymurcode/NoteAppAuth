@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "506732945301",
+    "project_id": "test-29d85",
+    "storage_bucket": "test-29d85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506732945301:android:715349e368d1b6587de09c",
+        "android_client_info": {
+          "package_name": "com.sirketismi.noteapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3mfPl4ZPe1xv-8n0zs-fZuWPodX72-7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
