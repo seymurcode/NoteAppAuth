@@ -13,6 +13,7 @@ import com.sirketismi.noteapp.repository.NotesRepository
 import com.sirketismi.noteapp.util.showMessage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -28,7 +29,8 @@ class LoginViewModel @Inject constructor(
 
 
     var onSuccessLogin = MutableLiveData<Boolean>(false)
-    var onErrorLogin = MutableLiveData<Boolean>(false)
+    var onErrorLogin = MutableLiveData<Exception>()
+    var onErrorEnteredData = MutableLiveData<String>()
     var onRegisterClick = MutableLiveData<Boolean>(false)
 
     private fun isValid() : Boolean {
@@ -44,17 +46,16 @@ class LoginViewModel @Inject constructor(
                     onSuccessLogin.postValue(true)
                 },
                 {
-                    onErrorLogin.postValue(true)
+                    onErrorLogin.postValue(it)
                 })
         }
         else{
-            println("bosduuuuu")
+            onErrorEnteredData.postValue(appContext.getString(R.string.error_login_detail))
         }
     }
 
     fun onRegisterButtonClick(){
         println("onRegisterButtonClick")
-
         onRegisterClick.postValue(true)
     }
 }

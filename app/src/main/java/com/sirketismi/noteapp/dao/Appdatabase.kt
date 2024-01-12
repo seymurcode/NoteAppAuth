@@ -9,7 +9,7 @@ import androidx.room.migration.Migration
 import com.sirketismi.noteapp.model.NoteEntity
 import com.sirketismi.noteapp.model.User
 //
-@Database(entities = [NoteEntity::class, User::class], version = 2,)
+@Database(entities = [NoteEntity::class, User::class], version = 6,)
     //autoMigrations = [AutoMigration(1, 2, spec = Migration.Migration1To2::class)])
 
 abstract class Appdatabase : RoomDatabase() {

@@ -5,4 +5,12 @@
     <string name="btn_save_title">Not Ekle</string>
     <string name="error_login_title">Giriş yapılamadı!</string>
     <string name="error_login_detail">Lütfen bilgileri kontrol edin.</string>
+    <string name="success">Başarılı</string>
+    <string name="success_register">Kayıt işlemi başarılı yapıldı</string>
+    <string name="error">Hata</string>
+    <string name="note_name">Not adı</string>
+    <string name="new_note">Yeni Not</string>
+    <string name="note_detail">Not tanımı</string>
+    <string name="note_date">Not tarihi</string>
+    <string name="tag">Tag</string>
 </resources>
