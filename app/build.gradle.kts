@@ -31,10 +31,32 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            keyAlias = "key0"
+            keyPassword = "12345678"
+            storeFile = file("../certificates/ReleaseKeyStore")
+            storePassword = "12345678"
+        }
+
+        create("dev") {
+            keyAlias = "key0"
+            keyPassword = "12345678"
+            storeFile = file("../certificates/DebugKeyStore")
+            storePassword = "12345678"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("release")
+        }
+        debug {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("dev")
         }
     }
     compileOptions {
@@ -58,6 +80,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
 
     implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-analytics")

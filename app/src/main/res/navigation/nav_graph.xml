@@ -62,8 +62,12 @@
     </fragment>
     <fragment
         android:id="@+id/introFragment"
-        android:name="com.sirketismi.noteapp.IntroFragment"
+        android:name="com.sirketismi.noteapp.feature.intro.IntroFragment"
         android:label="fragment_intro"
-        tools:layout="@layout/fragment_intro" />
+        tools:layout="@layout/fragment_intro" >
+        <action
+            android:id="@+id/action_introFragment_to_splash"
+            app:destination="@id/splashFragment" />
+    </fragment>
 
 </navigation>
